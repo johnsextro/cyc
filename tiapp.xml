@@ -9,9 +9,9 @@
         <target device="blackberry">false</target>
     </deployment-targets>
     <sdk-version>3.0.2.GA</sdk-version>
-    <id>com.johnsextro.saintsschedule</id>
-    <name>SaintsSchedule</name>
-    <version>2.0.0</version>
+    <id>com.johnsextro.cycschedules</id>
+    <name>CYCSchedules</name>
+    <version>1.0.0</version>
     <publisher>John Sextro</publisher>
     <url>http://www.johnsextro.com</url>
     <description>none</description>
@@ -37,13 +37,13 @@
         </orientations>
     </iphone>
     <android xmlns:android="http://schemas.android.com/apk/res/android">
-        <manifest android:versionCode="200" android:versionName="2.0.0">
+        <manifest android:versionCode="100" android:versionName="1.0.0">
             <supports-screens android:anyDensity="false"/>
             <application>
                 <activity android:alwaysRetainTaskState="true"
                     android:configChanges="keyboardHidden|orientation"
-                    android:label="SaintsSchedule"
-                    android:name=".SaintsSchedule" android:theme="@style/Theme.Titanium">
+                    android:label="CYCSchedules"
+                    android:name=".CYCSchedules" android:theme="@style/Theme.Titanium">
                     <intent-filter>
                         <action android:name="android.intent.action.MAIN"/>
                     </intent-filter>
