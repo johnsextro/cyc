@@ -13,29 +13,35 @@ function TeamsWindow(title) {
 		backgroundColor : 'silver'
 	});
 	var btnAddTeam = Titanium.UI.createButton({
-		backgroundImage:'/images/add-list-48.png',
-		width: '40',
-		height: '40',
-		right:'10',
-		top: '3'
+		backgroundImage : '/images/add-list-48.png',
+		width : '40',
+		height : '40',
+		right : '10',
+		top : '3'
 	});
-	
+
 	var btnInfo = Titanium.UI.createButton({
-		backgroundImage:'/images/info-3-48.png',
-		width: '40',
-		height: '40',
-		left: '10',
-		top: '3'
+		backgroundImage : '/images/info-3-48.png',
+		width : '40',
+		height : '40',
+		left : '10',
+		top : '3'
 	});
-	
+
 	var lblInstructions = Titanium.UI.createLabel({
-	  color: 'black',
-	  text: 'Slide team right to remove',
-	  font:{fontSize:12},
-	  width: 'auto', 
-	  height: 'auto'
+		color : 'black',
+		text : 'Long press a team to remove',
+		font : {
+			fontSize : 12
+		},
+		width : 'auto',
+		height : 'auto'
 	});
 	
+	if (osname === 'iphone' || osname === 'ipad') {
+		lblInstructions.setText("Slide team right to remove");	
+	}
+
 	btnAddTeam.addEventListener('click', function(e) {
 		winSelectSeason = new SeasonSelection();
 		winSelectSeason.open();
@@ -51,10 +57,11 @@ function TeamsWindow(title) {
 		layout : 'vertical',
 		backgroundColor : '#fff'
 	});
-	var tableview = Titanium.UI.createTableView();
+	var tableview = Titanium.UI.createTableView({
+		objName : 'table'
+	});
 
 	body.add(tableview);
-	
 
 	self.add(body);
 
@@ -66,25 +73,23 @@ function TeamsWindow(title) {
 		// create table view data object
 		var data = [];
 		for (var teamIndex = 0; teamIndex < teams.length; teamIndex++) {
-			data.push({
+			var row = Ti.UI.createTableViewRow({
+				className : 'row',
+				objName : 'row',
+				touchEnabled : true,
 				title : teams[teamIndex][1],
 				value : teams[teamIndex][0],
 				hasChild : true,
-				test : 'schedule/schedule'
+				test : 'schedule/schedule',
+				height : 50
 			});
+			data.push(row);
 		};
 
-		// create table view
-		for (var i = 0; i < data.length; i++) {
-			data[i].color = '#000';
-			data[i].font = {
-				fontWeight : 'bold'
-			}
-		};
 		tableview.setData(data);
 		var popupwin = require("schedule/popup");
 		if (Ti.App.Properties.getBool('Welcome', false) == false) {
-			popupwin.popup().open();	
+			popupwin.popup().open();
 		}
 	});
 
@@ -106,12 +111,19 @@ function TeamsWindow(title) {
 	tableview.addEventListener('swipe', function(e) {
 		if (osname === 'iphone' || osname === 'ipad') {
 			e.source.setEditable(true);
-		} else {
-			var props = Ti.App.Properties.getList('Teams');
-			props.splice(e.index, 1);
-			Ti.App.Properties.setList('Teams', props);
-			self.fireEvent('focus');
 		}
+	});
+	
+	
+	tableview.addEventListener('longclick', function(e) {
+		var props = Ti.App.Properties.getList('Teams');
+		for(var i = props.length; i--; ) {
+		    if(props[i][0] === e.source.value) {
+		        props.splice(i, 1);
+		    }
+		}
+		Ti.App.Properties.setList('Teams', props);
+		self.fireEvent('focus');
 	});
 
 	if (osname === 'iphone' || osname === 'ipad') {
@@ -121,7 +133,7 @@ function TeamsWindow(title) {
 			Ti.App.Properties.setList('Teams', props);
 		});
 	}
-	
+
 	return self;
 };
 module.exports = TeamsWindow;
