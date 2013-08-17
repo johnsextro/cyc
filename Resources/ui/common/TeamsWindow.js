@@ -48,7 +48,7 @@ function TeamsWindow(title) {
 	});
 
 	header.add(btnAddTeam);
-	header.add(btnInfo);
+	// header.add(btnInfo);
 	header.add(lblInstructions);
 	self.add(header);
 

@@ -1,0 +1,17 @@
+android/ATTR_MINIFY=true
+android/ATTR_PROJECT_NAME=cyc
+android/abi=armeabi
+android/distribute_path=/Users/family/Documents/Saints Android v2
+android/keystore_alias=cycschedule
+android/keystore_password=C@f3mocha
+android/keystore_path=/Users/family/Documents/Titanium_Studio_Workspace/cyc/cycschedulekeystore
+android/recent_output=/Users/family/Documents/Saints Android v2
+android/sdk_version=Google APIs (Android 2.2)
+eclipse.preferences.version=1
+iosLaunchConfigurationAttributes/ATTR_MINIFY=true
+iosLaunchConfigurationAttributes/ATTR_PROJECT_NAME=cyc
+iosLaunchConfigurationAttributes/appid=com.johnsextro.cycschedules
+iosLaunchConfigurationAttributes/certificate=John Sextro (P9DFJ388VY)
+iosLaunchConfigurationAttributes/keychain=
+iosLaunchConfigurationAttributes/sdk_version=6.1
+iosLaunchConfigurationAttributes/uuid=FF490944-D1CC-4007-8BC7-575EECF37E0B

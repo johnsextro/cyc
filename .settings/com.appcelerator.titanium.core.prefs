@@ -1,0 +1,16 @@
+eclipse.preferences.version=1
+provisioning_profiles/development/1E95F98C-631C-4903-B32B-77B0DB4FCB14/appid=com.johnsextro.cycschedules
+provisioning_profiles/development/1E95F98C-631C-4903-B32B-77B0DB4FCB14/name=CYCSchedules
+provisioning_profiles/development/1E95F98C-631C-4903-B32B-77B0DB4FCB14/uuid=1E95F98C-631C-4903-B32B-77B0DB4FCB14
+provisioning_profiles/development/826FEFD6-9BDA-4B53-9D90-95A2D50F95E6/appid=*
+provisioning_profiles/development/826FEFD6-9BDA-4B53-9D90-95A2D50F95E6/name=iOS Team Provisioning Profile\: *
+provisioning_profiles/development/826FEFD6-9BDA-4B53-9D90-95A2D50F95E6/uuid=826FEFD6-9BDA-4B53-9D90-95A2D50F95E6
+provisioning_profiles/development/FF490944-D1CC-4007-8BC7-575EECF37E0B/appid=*
+provisioning_profiles/development/FF490944-D1CC-4007-8BC7-575EECF37E0B/name=Dev Testing for Saints App
+provisioning_profiles/development/FF490944-D1CC-4007-8BC7-575EECF37E0B/uuid=FF490944-D1CC-4007-8BC7-575EECF37E0B
+provisioning_profiles/distribution/2934A94C-1CE5-444C-8D66-031ED1F3FA22/appid=*
+provisioning_profiles/distribution/2934A94C-1CE5-444C-8D66-031ED1F3FA22/name=SaintsDistributionProfile
+provisioning_profiles/distribution/2934A94C-1CE5-444C-8D66-031ED1F3FA22/uuid=2934A94C-1CE5-444C-8D66-031ED1F3FA22
+provisioning_profiles/distribution/D55E5325-C357-4DA9-83E7-3ABB97C66985/appid=*
+provisioning_profiles/distribution/D55E5325-C357-4DA9-83E7-3ABB97C66985/name=SaintsApp
+provisioning_profiles/distribution/D55E5325-C357-4DA9-83E7-3ABB97C66985/uuid=D55E5325-C357-4DA9-83E7-3ABB97C66985
