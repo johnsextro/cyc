@@ -7,6 +7,7 @@ function TeamsWindow(title) {
 
 	self.layout = 'vertical'
 	SeasonSelection = require('schedule/SeasonSelection');
+	GameMap = require('schedule/GameMap');
 
 	var header = Ti.UI.createView({
 		height : '50',
@@ -47,8 +48,13 @@ function TeamsWindow(title) {
 		winSelectSeason.open();
 	});
 
+	btnInfo.addEventListener('click', function(e) {
+		winMapView = new GameMap();
+		winMapView.open();	
+	});
+	
 	header.add(btnAddTeam);
-	// header.add(btnInfo);
+	header.add(btnInfo);
 	header.add(lblInstructions);
 	self.add(header);
 
