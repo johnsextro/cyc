@@ -3,9 +3,9 @@ function TeamsWindow(title) {
 		title : title,
 		backgroundColor : 'white'
 	});
-	var osname = Ti.Platform.osname
+	var osname = Ti.Platform.osname;
 
-	self.layout = 'vertical'
+	self.layout = 'vertical';
 	SeasonSelection = require('schedule/SeasonSelection');
 	GameMap = require('schedule/GameMap');
 
@@ -22,7 +22,7 @@ function TeamsWindow(title) {
 	});
 
 	var btnInfo = Titanium.UI.createButton({
-		backgroundImage : '/images/info-3-48.png',
+		backgroundImage : '/images/nav-48.png',
 		width : '40',
 		height : '40',
 		left : '10',

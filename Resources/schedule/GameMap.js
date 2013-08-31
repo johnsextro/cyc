@@ -3,6 +3,18 @@ function GameMap() {
 	var win = Titanium.UI.createWindow();
 	var regionSet = false;
 	
+	var btnCancel = Titanium.UI.createButton({
+		backgroundImage:'/images/x-mark-48.png',
+		width: '40',
+		height: '40',
+		left: '10',
+		bottom: '3'
+	});
+	
+	btnCancel.addEventListener('click', function(e) {
+		win.close();
+	});
+	
 	var ash = Titanium.Map.createAnnotation({
 	    latitude:38.786472,
 	    longitude:-90.481639,
@@ -399,6 +411,10 @@ function GameMap() {
 	});
 
 	win.add(mapview);
+	var footer = Ti.UI.createView({height:'46', bottom: 0, backgroundColor:'silver'});
+	footer.add(btnCancel);
+	win.add(footer);
+	
 	// Handle click events on any annotations on this map.
 	mapview.addEventListener('click', function(evt) {
 	
