@@ -3,15 +3,30 @@ function schedule(_args) {
 		title:_args.title,
 		backgroundColor:'white'
 	});
+	self.layout = 'vertical';
 	MessageWindow = require('ui/common/MessageWindow');
 	var actInd = new MessageWindow();
-	actInd.setLabel("loading...")
+	actInd.setLabel("loading...");
 	actInd.open();
+
+	var btnAddCalendarEvents = Titanium.UI.createButton({
+		backgroundImage : '/images/calendar-add-48.png',
+		width : '40',
+		height : '40',
+		left : '10',
+		top : '3'
+	});
+		
+	var header = Ti.UI.createView({
+		height : '50',
+		backgroundColor : 'silver'
+	});
+	
 	
 	// {"games": [{"game_date": "4/1/2013", "opponent": "St. J & A", "location": "St. Joes"}, {"game_date": "4/8/2013", "opponent": "Westgate", "location": "St. Joes"}, {"game_date": "4/14/2013", "opponent": "ICD", "location": "ICD"}, {"game_date": "4/28/2013", "opponent": "Holy Spirit", "location": "Holy Spirit"}]}
 	var url = "http://x8-avian-bricolage-r.appspot.com/schedule/ScheduleService.schedule";
 	// var url = "http://localhost:8080/schedule/ScheduleService.schedule";
-	var data = []
+	var data = [];
 	var json, schedule, fighters, games;
 	
 	var xhr = Ti.Network.createHTTPClient({
@@ -31,12 +46,14 @@ function schedule(_args) {
 		}
 		
 		// create table view
-		for (var i = 0; i < data.length; i++ ) { data[i].color = '#000'; data[i].font = {fontWeight:'bold'} };
+		for (var i = 0; i < data.length; i++ ) { data[i].color = '#000'; data[i].font = {fontWeight:'bold'}; };
 		var tableview = Titanium.UI.createTableView({
 			data:data
 		});
 	
 		// add table view to the window
+		header.add(btnAddCalendarEvents);
+		self.add(header);	
 		self.add(tableview);
 		actInd.close();
     },
@@ -52,7 +69,7 @@ function schedule(_args) {
 
 	var params = '{"team_id": "' + _args.team_id + '"}';
 	xhr.open("POST", url);
-	xhr.setRequestHeader('Content-Type','application/json')
+	xhr.setRequestHeader('Content-Type','application/json');
 	xhr.send(params);
 	return self;
 }
