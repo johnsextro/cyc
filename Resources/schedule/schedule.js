@@ -22,6 +22,41 @@ function schedule(_args) {
 		backgroundColor : 'silver'
 	});
 	
+	btnAddCalendarEvents.addEventListener('click', function(e) {
+	    var defCalendar = Ti.Calendar.defaultCalendar;
+	    var date1 = new Date(new Date().getTime() + 3000),
+	        date2 = new Date(new Date().getTime() + 900000);
+	    Ti.API.info('Date1 : '+ date1 + 'Date2 : '+ date2);
+	    var event1 = defCalendar.createEvent({
+	                        title: 'Sample Event',
+	                        notes: 'This is a test event which has some values assigned to it.',
+	                        location: 'Appcelerator Inc',
+	                        begin: date1,
+	                        end: date2,
+	                        availability: Ti.Calendar.AVAILABILITY_FREE,
+	                        allDay: false,
+	                });
+	    var alert1 = event1.createAlert({
+	                        absoluteDate: new Date(new Date().getTime() - (1000*60*20))
+	                });
+	    var alert2 = event1.createAlert({
+	        relativeOffset:-(60*15)
+	    });
+	    var allAlerts = new Array(alert1,alert2);
+	    event1.alerts = allAlerts;
+	    // var newRule = event1.createRecurenceRule({
+	                        // frequency: Ti.Calendar.RECURRENCEFREQUENCY_MONTHLY,
+	                        // interval: 1,
+	                        // daysOfTheWeek: [{dayOfWeek:1,week:2},{dayOfWeek:2}],
+	                        // end: {occurrenceCount:10}
+	                // });
+	    // Ti.API.info('newRule : '+ newRule);
+	    // event1.recurrenceRules = [newRule];
+	    Ti.API.info('Going to save event now');
+	    event1.save(Ti.Calendar.SPAN_THISEVENT);
+	    // Ti.API.info('Done with saving event,\n Now trying to retreive it.');
+	    // printEventDetails(event1.id);
+	});
 	
 	// {"games": [{"game_date": "4/1/2013", "opponent": "St. J & A", "location": "St. Joes"}, {"game_date": "4/8/2013", "opponent": "Westgate", "location": "St. Joes"}, {"game_date": "4/14/2013", "opponent": "ICD", "location": "ICD"}, {"game_date": "4/28/2013", "opponent": "Holy Spirit", "location": "Holy Spirit"}]}
 	var url = "http://x8-avian-bricolage-r.appspot.com/schedule/ScheduleService.schedule";
